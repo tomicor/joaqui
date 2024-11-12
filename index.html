@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Loader</title>
+    <style>
+        /* Estilos para el loader */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #344a9f; /* Color de fondo del loader */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+       
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Estilos para el contenido principal */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .main-container {
+            display: none; /* Oculto inicialmente para que aparezca después del loader */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header-container {
+            background-color: white;
+            padding: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .content-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .title {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .audio-player {
+            margin-top: 15px;
+        }
+
+        /* Responsivo para móviles */
+        @media (max-width: 768px) {
+            .content-container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .header-container {
+                font-size: 20px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div>
+            <img src="img/12.png" class="spinner">
+        </div>
+    </div>
+    <style>
+        .spinner {
+            animation: spin 2s linear infinite;
+        }
+    </style>
+
+    <!-- Contenido principal -->
+    <div class="main-container">
+        
+        <div class="content-container">
+            <img src="img/portada.jpg" alt="Imagen de cumpleaños">
+            <div class="title">Feliz cumple Joaqui</div>
+            <div class="subtitle">Tomás Corvetto</div>
+            <div class="audio-player">
+                <audio controls>
+                    <source src="audio/CancionJ.mp3" type="audio/mp3">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ocultar el loader y mostrar el contenido principal
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none'; // Oculta el loader
+                document.querySelector('.main-container').style.display = 'block'; // Muestra el contenido principal
+            }, 2000); // Tiempo de espera de 2 segundos
+        });
+    </script>
+</body>
+</html>
